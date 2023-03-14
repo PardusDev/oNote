@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
+
+:root {
+    --bgColor: #efefef;
+    --topBarColor: #10ac84;
+    --topBarFontColor: #fff;
+
+    --fontColor: #576574;
+
+    --font: 'Ubuntu', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    background-color: var(--bgColor);
+    font-family: var(--font);
+}
+
+.top-bar {
+    width: 100%;
+    height: 90px;
+    background-color: var(--topBarColor);
+}
+
+.center-text {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--topBarFontColor);
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 320px);
+    padding: 16px;
+    gap: 16px;
+}
+
+.note {
+    height: 320px;
+    box-sizing: border-box;
+    padding: 14px;
+    border-radius: 16px;
+    background-color: #fff;
+}
+
+.create-note {
+    background-color: var(--topBarColor);
+    border: none;
+    outline: none;
+    height: 320px;
+    border-radius: 16px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    transition: background, font 0.3s;
+}
+
+.create-note:hover {
+    background-color: #16bb8f;
+    font-size: 28px;
+}
+
+.note-text {
+    outline:none;
+    border:none;
+    height:96%;
+    font-size:26px;
+    font-family: var(--font);
+    color: rgba(0, 0, 0, 0.6);
+    resize: none;
+}
+
+.note-creationdate {
+    text-align: right;
+    color: #aaa;
+    font-style: oblique;
+    opacity: 0.6;
+    font-size: 12px;
+}
