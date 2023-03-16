@@ -92,3 +92,65 @@ html, body {
     opacity: 0.6;
     font-size: 12px;
 }
+
+.modal-bg {
+    /*display:none;*/
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 30%;
+    filter: drop-shadow(3px 3px 20px rgba(0, 0, 0, 0.3));
+}
+
+.modal-mark {
+    background-color: #e84118;
+    border-radius: 50%;
+    width: 72px;
+    height: auto;
+}
+
+.modal-center {
+    margin: 30px;
+    font-weight: 600;
+}
+
+.modal-footer > button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    width: 90px;
+    height: 40px;
+    font-weight: 500;
+    filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.3));
+    font-size: 16px;
+}
+
+.modal-yes {
+    background-color: var(--topBarColor);
+    margin-right: 15px;
+}
+
+.modal-no {
+    background-color: #EA2027;
+    margin-left: 15px;
+}

@@ -46,13 +46,32 @@ function createNoteElement(id, text, creationDate) {
         updateNote(id, textarea.value);
     })
 
-    // TODO: This will be in the form of a button, with a red trash can icon and located at the top right corner of the note.
     trashcan.addEventListener("click", () => {
-        const doDelete = confirm("Are you sure?");
+        let modalBg = document.createElement("div");
+        modalBg.classList.add("modal-bg");
+        modalBg.innerHTML = `
+            <div class="modal">
+                <box-icon class="modal-mark" color="white" name='question-mark'></box-icon>
+                <div class="modal-center">Are you sure you want to delete this note? This action cannot be undone.</div>
+                <div class="modal-footer">
+                    <button class="modal-yes" type="button">Yes</button>
+                    <button class="modal-no" type="button">No</button>
+                </div>
+            </div>
+        `
+        document.body.appendChild(modalBg);
 
-        if (doDelete) {
+        const modalYes = document.querySelector(".modal-yes");
+        const modalNo = document.querySelector(".modal-no");
+
+        modalYes.addEventListener("click", () => {
             deleteNote(id, element);
-        }
+            modalBg.remove();
+        })
+
+        modalNo.addEventListener("click", () => {
+            modalBg.remove();
+        })
     });
 
     return element;
@@ -78,14 +97,14 @@ function addNote() {
 
 function updateNote(id, newText) {
     const allNotes = getAllNotes();
-    const findNote = allNotes.filter(note => note.id == id)[0];
+    const findNote = allNotes.filter(note => note.id === id)[0];
 
     findNote.text = newText;
-    saveAllNotes(notes);
+    saveAllNotes(allNotes);
 }
 
 function deleteNote(id, element) {
-    const allNotes = getAllNotes().filter(note => note.id != id);
+    const allNotes = getAllNotes().filter(note => note.id !== id);
     saveAllNotes(allNotes);
     notes.removeChild(element);
 }
