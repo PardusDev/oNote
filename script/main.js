@@ -22,12 +22,17 @@ function createNoteElement(id, text, creationDate) {
     const element = document.createElement("div");
     element.classList.add("note");
 
+    const trashcan = document.createElement("button");
+    trashcan.classList.add("note-delete");
+    trashcan.innerHTML = "<i class='bx bx-trash'></i>";
+
     const textarea = document.createElement("textarea");
     textarea.classList.add("note-text");
 
     const crtddate = document.createElement("div");
     crtddate.classList.add("note-creationdate");
 
+    element.appendChild(trashcan);
     element.appendChild(textarea);
     element.appendChild(crtddate);
 
@@ -42,7 +47,7 @@ function createNoteElement(id, text, creationDate) {
     })
 
     // TODO: This will be in the form of a button, with a red trash can icon and located at the top right corner of the note.
-    textarea.addEventListener("dblclick", () => {
+    trashcan.addEventListener("click", () => {
         const doDelete = confirm("Are you sure?");
 
         if (doDelete) {
@@ -93,6 +98,6 @@ function getRandomPlaceholder() {
         "How was your day?",
         "What would you like to write about today?"
     ];
-    const randomIndex = Math.floor(Math.random() * placeholders.length );
+    const randomIndex = Math.floor(Math.random() * placeholders.length);
     return placeholders[randomIndex];
 }

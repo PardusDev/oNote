@@ -64,11 +64,22 @@ html, body {
     font-size: 28px;
 }
 
+.note-delete {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    color: darkred;
+    background: none;
+    border: none;
+    float: right;
+    cursor: pointer;
+}
+
 .note-text {
-    outline:none;
-    border:none;
-    height:96%;
-    font-size:26px;
+    outline: none;
+    border: none;
+    height: 88%;
+    font-size: 26px;
     font-family: var(--font);
     color: rgba(0, 0, 0, 0.6);
     resize: none;
